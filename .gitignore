@@ -68,14 +68,9 @@ crashlytics-build.properties
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
 # Temporary auto-generated Android Assets
-/[Aa]ssets/[Ss]treamingAssets/aa.meta
-/[Aa]ssets/[Ss]treamingAssets/aa/*
 /Packages/com.ptc.vuforia.engine-10.21.3.tgz
-/Assets/StreamingAssets/Vuforia
-/Assets/StreamingAssets.meta
-/Assets/StreamingAssets/Vuforia.meta
-/Assets/Resources/VuforiaModels
-/Assets/Resources/VuforiaModels.meta
-/Assets/Editor/Vuforia
 *.meta
+/Assets/StreamingAssets/Vuforia
 /Assets/Resources/manifest.txt
+/Assets/Resources/VuforiaModels/LionA
+/Assets/Editor/Vuforia/LionA

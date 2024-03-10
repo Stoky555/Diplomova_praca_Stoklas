@@ -93,33 +93,35 @@ public class DatabaseSelectorController : MonoBehaviour
     {
         try
         {
-            var databaseModelTargets = xmlReader.GetAllModelTargetNames(manifestLoader.GetAllDatabaseNamesFromManifest());
-
-            if (databaseModelTargets == null || databaseModelTargets.Count == 0)
+            xmlReader.GetAllModelTargetNames(manifestLoader.GetAllDatabaseNamesFromManifest(), databaseModelTargets =>
             {
-                Debug.LogWarning("Could not fetch model target names from the database or no databases are available.");
-                modelsInDatabase = new string[0];
-                return;
-            }
-
-            if (!string.IsNullOrEmpty(databaseName) && databaseModelTargets.ContainsKey(databaseName))
-            {
-                // Fetch models from the selected database
-                modelsInDatabase = databaseModelTargets[databaseName].ToArray();
-
-
-                foreach (string name in modelsInDatabase)
+                if (databaseModelTargets == null || databaseModelTargets.Count == 0)
                 {
-                    Debug.Log("[DatabaseSelectorController] [LoadModelsForSelectedDatabase] Name of database: " + name);
+                    Debug.LogWarning("Could not fetch model target names from the database or no databases are available.");
+                    modelsInDatabase = new string[0];
+                    return;
                 }
-            }
-            else
-            {
-                Debug.LogWarning($"Selected database '{databaseName}' does not directly map to available data.");
-                modelsInDatabase = new string[0]; // Fallback to an empty array
-            }
 
-            // Here, you could update the UI or do other actions based on the new modelsInDatabase
+                if (!string.IsNullOrEmpty(databaseName) && databaseModelTargets.ContainsKey(databaseName))
+                {
+                    // Fetch models from the selected database
+                    modelsInDatabase = databaseModelTargets[databaseName].ToArray();
+
+                    foreach (string name in modelsInDatabase)
+                    {
+                        Debug.Log("[DatabaseSelectorController] [LoadModelsForSelectedDatabase] Name of database: " + name);
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning($"Selected database '{databaseName}' does not directly map to available data.");
+                    modelsInDatabase = new string[0]; // Fallback to an empty array
+                }
+
+                // Here, you could update the UI or do other actions based on the new modelsInDatabase
+                // This might need to be executed on the main thread if you're modifying the UI, for example:
+                // this.Invoke(() => UpdateUIWithModels(modelsInDatabase));
+            });
         }
         catch (System.Exception ex)
         {
