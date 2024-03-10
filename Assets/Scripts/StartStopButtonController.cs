@@ -52,10 +52,7 @@ public class StartStopButtonController : MonoBehaviour
 
     public void ModelLost()
     {
-        if (!timerRunning)
-        {
-            StartTimer();
-        }
+        StartTimer();
     }
 
     // Start the timer when ModelTargets are being created
