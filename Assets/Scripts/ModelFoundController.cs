@@ -26,6 +26,9 @@ namespace VuforiaScripts
         {
             // Start or restart the coroutine with the "model lost" message
             StartOrRestartMessageCoroutine($"Model lost: {gameObjectName}", Color.red);
+
+            // Notify StartStopButtonController a model is found
+            startStopButtonController.ModelLost();
         }
 
         private void StartOrRestartMessageCoroutine(string message, Color color)

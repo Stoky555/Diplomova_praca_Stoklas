@@ -990,7 +990,7 @@ GameObject:
   - component: {fileID: 514017263}
   - component: {fileID: 514017262}
   m_Layer: 5
-  m_Name: RefreshDatabases
+  m_Name: RefreshButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1063,6 +1063,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1739470702}
         m_TargetAssemblyTypeName: PopulateDropdownController, Assembly-CSharp
         m_MethodName: PopulateDropdownWithDatabaseNames
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1739470707}
+        m_TargetAssemblyTypeName: RefreshButtonController, Assembly-CSharp
+        m_MethodName: RefreshModels
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2954,6 +2966,7 @@ GameObject:
   - component: {fileID: 1739470700}
   - component: {fileID: 1739470698}
   - component: {fileID: 1739470705}
+  - component: {fileID: 1739470707}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -3090,6 +3103,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   databaseNames: []
+--- !u!114 &1739470707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739470697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd4b902c533e5a44b9f06f5ce1ad853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1758539481
 GameObject:
   m_ObjectHideFlags: 0

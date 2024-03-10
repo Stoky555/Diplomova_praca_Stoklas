@@ -60,7 +60,7 @@ public class LoadMultipleTargetsFromDatabase : MonoBehaviour
 
         foreach (var target in databaseSelector.modelsInDatabase)
         {
-            CreateAndSetupModelTarget(selectedDatabasePath, target, ModelContainer, modelFoundController);
+            await CreateAndSetupModelTarget(selectedDatabasePath, target, ModelContainer, modelFoundController);
         }
 
         if (ModelContainer.transform.childCount > 0)
@@ -101,7 +101,7 @@ public class LoadMultipleTargetsFromDatabase : MonoBehaviour
         return $"{databasePathGeneral}{databaseSelector.selectedDatabase}.xml";
     }
 
-    void CreateAndSetupModelTarget(string databasePath, string targetName, GameObject modelContainer, ModelFoundController modelFoundController)
+    async Task CreateAndSetupModelTarget(string databasePath, string targetName, GameObject modelContainer, ModelFoundController modelFoundController)
     {
         try
         {
@@ -118,7 +118,7 @@ public class LoadMultipleTargetsFromDatabase : MonoBehaviour
             Debug.Log("[LoadMultipleTargetsFromDatabase] [CreateAndSetupModelTarget] DatabasePath: " + databasePath);
             Debug.Log("[LoadMultipleTargetsFromDatabase] [CreateAndSetupModelTarget] TargetName: " + targetName);
 
-            var itBehaviour = VuforiaBehaviour.Instance.ObserverFactory.CreateModelTarget(databasePath, targetName);
+            var itBehaviour = await VuforiaBehaviour.Instance.ObserverFactory.CreateModelTargetAsync(databasePath, targetName);
             if (itBehaviour == null) throw new System.Exception("Model Target creation failed.");
 
             itBehaviour.transform.SetParent(modelContainer.transform, false);
