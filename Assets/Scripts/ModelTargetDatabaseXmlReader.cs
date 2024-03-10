@@ -6,65 +6,42 @@ using UnityEngine;
 
 public class ModelTargetDatabaseXmlReader : MonoBehaviour
 {
-    private List<QCARConfig> GetModelsFromModelTargetDatabaseXml()
+    // Adjusted method to load XML files based on database names provided by the manifest
+    public Dictionary<string, HashSet<string>> GetAllModelTargetNames(List<string> databaseNames)
     {
-        string path = Path.Combine(Application.streamingAssetsPath, "Vuforia");
-
-        if (!Directory.Exists(path))
-        {
-            Debug.LogWarning($"Directory does not exist at path: {path}");
-            return null;
-        }
-
-        string[] files = Directory.GetFiles(path, "*.xml");
-        if (files.Length == 0)
-        {
-            Debug.LogWarning("No XML files found in the directory.");
-            return null;
-        }
-
-        List<QCARConfig> qcarConfigs = new List<QCARConfig>();
+        // Dictionary to hold database names and their corresponding model target names
+        Dictionary<string, HashSet<string>> databaseModelTargets = new Dictionary<string, HashSet<string>>();
         XmlSerializer serializer = new XmlSerializer(typeof(QCARConfig));
 
-        foreach (string file in files)
+        foreach (string databaseName in databaseNames)
         {
-            using (StreamReader reader = new StreamReader(file))
+            // Load each specified database XML file
+            TextAsset xmlTextAsset = Resources.Load<TextAsset>($"XmlDatabaseFiles/{databaseName}");
+            if (xmlTextAsset != null)
             {
-                QCARConfig qcarConfig = (QCARConfig)serializer.Deserialize(reader);
-                qcarConfigs.Add(qcarConfig);
-            }
-        }
-
-        return qcarConfigs;
-    }
-
-    public Dictionary<string, HashSet<string>> GetAllModelTargetNames()
-    {
-        List<QCARConfig> qcarConfigs = GetModelsFromModelTargetDatabaseXml();
-        if (qcarConfigs == null)
-        {
-            Debug.LogWarning("No QCARConfig objects found.");
-            return null;
-        }
-
-        Dictionary<string, HashSet<string>> databaseModelTargets = new Dictionary<string, HashSet<string>>();
-
-        foreach (var qcarConfig in qcarConfigs)
-        {
-            if (qcarConfig.Tracking != null && qcarConfig.Tracking.ModelTargets != null)
-            {
-                foreach (var modelTarget in qcarConfig.Tracking.ModelTargets)
+                using (StringReader reader = new StringReader(xmlTextAsset.text))
                 {
-                    // Use the database name as the key if available, otherwise use the model target name
-                    string databaseName = qcarConfig.ModelTargetDatabase != null ? qcarConfig.ModelTargetDatabase.Name : modelTarget.Name;
-
+                    // Deserialize the XML file into a QCARConfig object
+                    QCARConfig qcarConfig = (QCARConfig)serializer.Deserialize(reader);
+                    // Ensure the database name is in the dictionary
                     if (!databaseModelTargets.ContainsKey(databaseName))
                     {
                         databaseModelTargets[databaseName] = new HashSet<string>();
                     }
 
-                    databaseModelTargets[databaseName].Add(modelTarget.Name);
+                    // If the QCARConfig has model targets, add them to the hash set
+                    if (qcarConfig.Tracking != null && qcarConfig.Tracking.ModelTargets != null)
+                    {
+                        foreach (var modelTarget in qcarConfig.Tracking.ModelTargets)
+                        {
+                            databaseModelTargets[databaseName].Add(modelTarget.Name);
+                        }
+                    }
                 }
+            }
+            else
+            {
+                Debug.LogWarning($"Failed to load XML file for database: {databaseName}");
             }
         }
 

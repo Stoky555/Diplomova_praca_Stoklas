@@ -9,9 +9,9 @@ public class LoadMultipleTargetsFromDatabase : MonoBehaviour
     /// <summary>
     /// this will be downloaded as the information from the database so i will know what xml i need to work with
     /// </summary>
-    private string databasePathGeneral = $"{Application.streamingAssetsPath}/Vuforia/";
+    private string databasePathGeneral = $"Vuforia/";
     ////private string databasePath = $"{Application.streamingAssetsPath}/Vuforia/AllOfThem.xml";
-    
+
     public StartStopButtonController startStopButtonController;
 
     [SerializeField]
@@ -28,10 +28,10 @@ public class LoadMultipleTargetsFromDatabase : MonoBehaviour
     /// <param name="error"></param>
     void OnVuforiaInitialized(VuforiaInitError error)
     {
-        //if (error == VuforiaInitError.NONE)
-        //{
-        //    CreateIT();
-        //}
+        if (error == VuforiaInitError.NONE)
+        {
+            CreateIT();
+        }
     }
 
     public async void CreateIT()
@@ -60,7 +60,7 @@ public class LoadMultipleTargetsFromDatabase : MonoBehaviour
 
         foreach (var target in databaseSelector.modelsInDatabase)
         {
-            await CreateAndSetupModelTarget(selectedDatabasePath, target, ModelContainer, modelFoundController);
+            CreateAndSetupModelTarget(selectedDatabasePath, target, ModelContainer, modelFoundController);
         }
 
         if (ModelContainer.transform.childCount > 0)
@@ -101,11 +101,24 @@ public class LoadMultipleTargetsFromDatabase : MonoBehaviour
         return $"{databasePathGeneral}{databaseSelector.selectedDatabase}.xml";
     }
 
-    async Task CreateAndSetupModelTarget(string databasePath, string targetName, GameObject modelContainer, ModelFoundController modelFoundController)
+    void CreateAndSetupModelTarget(string databasePath, string targetName, GameObject modelContainer, ModelFoundController modelFoundController)
     {
         try
         {
-            var itBehaviour = await VuforiaBehaviour.Instance.ObserverFactory.CreateModelTargetAsync(databasePath, targetName);
+            if (!VuforiaBehaviour.Instance.enabled)
+            {
+                VuforiaBehaviour.Instance.enabled = true;
+                VuforiaApplication.Instance.Initialize();
+            }
+
+            Debug.Log("[LoadMultipleTargetsFromDatabase] [CreateAndSetupModelTarget] persistentDataPath: " + Application.persistentDataPath);
+            Debug.Log("[LoadMultipleTargetsFromDatabase] [CreateAndSetupModelTarget] streamingAssetsPath: " + Application.streamingAssetsPath);
+            Debug.Log("[LoadMultipleTargetsFromDatabase] [CreateAndSetupModelTarget] dataPath: " + Application.dataPath);
+
+            Debug.Log("[LoadMultipleTargetsFromDatabase] [CreateAndSetupModelTarget] DatabasePath: " + databasePath);
+            Debug.Log("[LoadMultipleTargetsFromDatabase] [CreateAndSetupModelTarget] TargetName: " + targetName);
+
+            var itBehaviour = VuforiaBehaviour.Instance.ObserverFactory.CreateModelTarget(databasePath, targetName);
             if (itBehaviour == null) throw new System.Exception("Model Target creation failed.");
 
             itBehaviour.transform.SetParent(modelContainer.transform, false);
@@ -116,6 +129,8 @@ public class LoadMultipleTargetsFromDatabase : MonoBehaviour
         catch (System.Exception ex)
         {
             Debug.LogError($"Error creating model target '{targetName}': {ex.Message}");
+
+            ExceptionLogger.LogException(ex);
         }
     }
 

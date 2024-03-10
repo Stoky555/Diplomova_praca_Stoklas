@@ -25,18 +25,6 @@ public class ModelTarget
 {
     [XmlAttribute("name")]
     public string Name { get; set; }
-
-    [XmlAttribute("trackingMode")]
-    public string TrackingMode { get; set; }
-
-    [XmlAttribute("motionHint")]
-    public string MotionHint { get; set; }
-
-    [XmlAttribute("upVector")]
-    public string UpVector { get; set; }
-
-    [XmlAttribute("optimizeTrackingFor")]
-    public string OptimizeTrackingFor { get; set; }
 }
 
 public class Assembly
@@ -46,33 +34,6 @@ public class Assembly
 
     [XmlAttribute("assemblyId")]
     public string AssemblyId { get; set; }
-
-    [XmlElement("Part")]
-    public Part Part { get; set; }
-
-    [XmlElement("EntryPoint")]
-    public EntryPoint EntryPoint { get; set; }
-}
-
-public class Part
-{
-    [XmlAttribute("name")]
-    public string Name { get; set; }
-
-    [XmlAttribute("translation")]
-    public string Translation { get; set; }
-
-    [XmlAttribute("rotation")]
-    public string Rotation { get; set; }
-}
-
-public class EntryPoint
-{
-    [XmlAttribute("name")]
-    public string Name { get; set; }
-
-    [XmlAttribute("trained")]
-    public string Trained { get; set; }
 }
 
 public class ModelTargetDatabase
