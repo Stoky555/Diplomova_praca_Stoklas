@@ -71,7 +71,6 @@ crashlytics-build.properties
 /Packages/com.ptc.vuforia.engine-10.21.3.tgz
 *.meta
 /Assets/StreamingAssets/Vuforia
-/Assets/Resources/manifest.txt
 /Assets/Resources/VuforiaModels/LionA
 /Assets/Editor/Vuforia/LionA
 /Assets/Editor/Vuforia
