@@ -68,7 +68,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
 # Temporary auto-generated Android Assets
-/Packages/com.ptc.vuforia.engine-10.21.3.tgz
 *.meta
 /Assets/StreamingAssets/Vuforia
 /Assets/Resources/VuforiaModels/LionA
