@@ -68,7 +68,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
 # Temporary auto-generated Android Assets
-*.meta
 /Assets/StreamingAssets/Vuforia
 /Assets/Resources/VuforiaModels/LionA
 /Assets/Editor/Vuforia/LionA
