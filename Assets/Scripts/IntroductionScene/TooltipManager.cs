@@ -8,7 +8,7 @@ public class TooltipManager : MonoBehaviour
     public static TooltipManager _instance;
     public TextMeshProUGUI helpText;
     public GameObject tooltipPanel; // Reference to the tooltip panel
-    public Vector3 offset = new Vector3(-20, 20, 0); // Offset from the button position
+    public Vector3 offset = new Vector3(-40, 40, 0); // Offset from the button position
     private Coroutine displayCoroutine = null; // To keep track of the coroutine
     private Transform lastButtonTransform; // To store the last button's transform for positioning
 
