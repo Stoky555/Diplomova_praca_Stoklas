@@ -1,0 +1,52 @@
+\documentclass[dp]{FEIstyle}
+
+\FEIauthor{Bc. Gabriel Stoklas}
+\FEItitle{Generovanie 3D identifikátora pre identifikáciu objektov v prostredí zmiešanej reality}
+\FEItitleEn{Generating a 3D identifier for object identification in a mixed reality environment}
+\FEIkeywords{doplnit keywords}
+\FEIkeywordsEn{doplnit eng keywords}
+\FEIregNr{FEI-5384-92214}
+\FEIsupervisor{doc. Ing. Erik Kučera, PhD.}
+
+
+\FEIglossaries{includes/glossary}
+\bibliography{includes/bibliography.bib}
+
+\iffalse \input{includes/glossary} \fi
+
+\begin{document}
+\frontmatter
+
+\FEIpdfInfo
+\FEIcover
+\FEItitlePage
+\FEIassignment{includes/zadanie}
+
+% \FEIassignment{includes/assignment.jpeg}
+% \FEIassignment{includes/assignment_part2.jpeg}
+\FEIabstract{includes/abstract}
+\FEIabstractEn{includes/abstractEN}
+\FEIdeclarationOfHonor{includes/declarationOfHonor}
+\FEIthanks{includes/thanks}
+\FEIcontent
+\FEIlistOfFiguresAndTables
+\FEIlistOfGlossaries
+%\FEIlistOfAlgorithms
+%\FEIlistOfListings
+
+\mainmatter
+
+\FEIintroduction{includes/introduction}
+\FEIcore{includes/core}
+\FEIconclusion{includes/conclusion}
+% \FEIresume{includes/resume} % Use only iff document is in english language
+
+% bibliography should use UTF-8 accents (write as is ľščťžýáí...) NOT converted by BibDesk
+% http://tex.stackexchange.com/questions/57743/how-to-write-%C3%A4-and-other-umlauts-and-accented-letters-in-bibliography
+\FEIbibliography %includes/bibliography.bib
+
+\backmatter
+
+\FEIlistOfAppendix
+
+\end{document}
