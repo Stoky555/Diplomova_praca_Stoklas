@@ -117,6 +117,15 @@ public class StartStopButtonController : MonoBehaviour
         }
     }
 
+    public void ResetTimer()
+    {
+        if (timerRunning) StopTimer();
+        else
+        {
+            StartTimer();
+        }
+    }
+
     private IEnumerator UpdateTimerText()
     {
         while (timerRunning)

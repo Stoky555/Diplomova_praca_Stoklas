@@ -104,6 +104,8 @@
 \usepackage{amssymb}
 \usepackage[acronym,nopostdot,nogroupskip,nonumberlist]{glossaries}
 \usepackage{pdfpages}
+\usepackage{tabularx}
+\usepackage{placeins}
 
 \addbibresource{includes/bibliography.bib}
 % \usepackage{showframe} % debugging overflows
@@ -199,7 +201,7 @@
 \def\FEIstudyFieldNumber#1{\def\@cisloStudijnehoOdboru{#1}}
 \newcommand{\printCisloStudijnehoOdboru}{\@cisloStudijnehoOdboru}
 
-\def\@nazovStudijnehoOdboru{Informatika}
+\def\@nazovStudijnehoOdboru{kybernetika}
 \def\FEIstudyField#1{\def\@nazovStudijnehoOdboru{#1}}
 \newcommand{\printNazovStudijnehoOdboru}{\@nazovStudijnehoOdboru}
 
@@ -227,7 +229,7 @@
 \def\FEIplace#1{\def\@mesto{#1}}
 \newcommand{\printMesto}{\@mesto}
 
-\newcommand{\subsubsubsection}[1]{t\paragraph{#1}\mbox{}\\}
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
@@ -247,14 +249,57 @@
 \titlespacing\subsubsection{12pt}{10pt}{0pt}
 \titlespacing\subsubsubsection{12pt}{10pt}{0pt}
 
-\lstset{
-  basicstyle=\scriptsize\ttfamily,
-  columns=flexible, % removes spaces
+\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.9,0,0}
+\definecolor{lightgray}{rgb}{0.5,0.5,0.5}
+\definecolor{darkgray}{rgb}{0.3,0.3,0.3}
+\definecolor{purple}{rgb}{0.5,0,0.35}
+\definecolor{editorGray}{rgb}{0.95,0.95,0.95}
+\definecolor{orange}{rgb}{0.85,0.45,0.1}
+\definecolor{olive}{rgb}{0.2,0.6,0.2}
+\definecolor{numbercolour}{rgb}{0.17,0.57,0.68} % Custom added for number style
+
+\lstdefinestyle{Csharp}{
+  language=[Sharp]C,
+  showspaces=false,
+  showtabs=false,
   breaklines=true,
+  frame=none,
+  numbers=left,
+  showstringspaces=false,
   breakatwhitespace=true,
-  showstringspaces=false, % removes ␣ character from " "
-  captionpos=b % caption below text
-}
+  escapeinside={(*@}{@*)},
+  numberstyle=\tiny\color{numbercolour},
+  backgroundcolor=\color{editorGray}, % Slightly off-white background
+  stepnumber=1,
+  commentstyle=\color{greencomments},
+  keywordstyle=\color{bluekeywords},
+  stringstyle=\color{redstrings},
+  basicstyle=\scriptsize\ttfamily\linespread{0.8}\selectfont, % Smaller font and reduced line spacing
+  xleftmargin=5.0ex,
+  morekeywords={
+    abstract, as, base, bool, break, byte,
+    case, catch, char, checked, class, const,
+    continue, decimal, default, delegate, do, double,
+    else, enum, event, explicit, extern, false,
+    finally, fixed, float, for, foreach, goto,
+    if, implicit, in, int, interface, internal,
+    is, lock, long, namespace, new, null,
+    object, operator, out, override, params, private,
+    protected, public, readonly, ref, return, sbyte,
+    sealed, short, sizeof, stackalloc, static, string,
+    struct, switch, this, throw, true, try,
+    typeof, uint, ulong, unchecked, unsafe, ushort,
+    using, virtual, void, volatile, while, async,
+    await, partial, var, value, get, set, add, remove, yield,
+    where, select, from, group, into, orderby,
+    join, let, by, on, equals, ascending, descending
+  },
+  morecomment=[l][\color{purple}]{\#}, % Preprocessor commands in purple
+  moredelim=**[is][\color{olive}]{@}{@}, % Special annotations or decorations
+  moredelim=**[is][\color{orange}]{`}{`} % For special identifiers or Unity specific
+} 
 
 %\IfEqCase*{\FEIenglish}{
 %    {0}{
@@ -707,7 +752,6 @@
 
     \renewcommand\multinamedelim{\addcomma\space}
     \renewcommand\finalnamedelim{\addspace\bibstring{and}\space}
-    % below you can set padding in bibliography
     \setlength{\bibhang}{0pt}
     \printbibliography
 }
