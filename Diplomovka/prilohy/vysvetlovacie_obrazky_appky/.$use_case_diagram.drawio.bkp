@@ -1,0 +1,65 @@
+<mxfile host="Electron" modified="2024-04-27T17:23:59.243Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.2.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="G4-cOJIuhxgjrzF9QoMp" version="24.2.5" type="device">
+  <diagram name="Page-1" id="harpphqSfy1c22R-W89G">
+    <mxGraphModel dx="989" dy="577" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="R3NVGjKWT4sXV1GPE9ub-3" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="R3NVGjKWT4sXV1GPE9ub-1" target="R3NVGjKWT4sXV1GPE9ub-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="R3NVGjKWT4sXV1GPE9ub-5" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="R3NVGjKWT4sXV1GPE9ub-1" target="R3NVGjKWT4sXV1GPE9ub-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="R3NVGjKWT4sXV1GPE9ub-1" value="U&lt;span style=&quot;background-color: initial;&quot;&gt;žívateľ&lt;/span&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="490" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="R3NVGjKWT4sXV1GPE9ub-2" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Skenovanie&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;modelov&amp;nbsp;&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;na&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;rozpoznávanie&lt;/span&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="160" y="200" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="R3NVGjKWT4sXV1GPE9ub-4" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Výber&amp;nbsp;&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;databázy&lt;div&gt;modelov&lt;/div&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="280" y="250" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="R3NVGjKWT4sXV1GPE9ub-6" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="R3NVGjKWT4sXV1GPE9ub-7" source="R3NVGjKWT4sXV1GPE9ub-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="569" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R3NVGjKWT4sXV1GPE9ub-7" value="Zobrazenie nápovedy" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="345" y="310" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="R3NVGjKWT4sXV1GPE9ub-8" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="R3NVGjKWT4sXV1GPE9ub-9" source="R3NVGjKWT4sXV1GPE9ub-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="612" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R3NVGjKWT4sXV1GPE9ub-9" value="Začatie skenovania" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="425" y="370" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="R3NVGjKWT4sXV1GPE9ub-12" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="R3NVGjKWT4sXV1GPE9ub-13" source="R3NVGjKWT4sXV1GPE9ub-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="616" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R3NVGjKWT4sXV1GPE9ub-13" value="Zastavenie skenovania" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="470" y="460" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="R3NVGjKWT4sXV1GPE9ub-14" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="R3NVGjKWT4sXV1GPE9ub-15" source="R3NVGjKWT4sXV1GPE9ub-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="105" y="609" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R3NVGjKWT4sXV1GPE9ub-15" value="Reštartovanie časovača" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="410" y="550" width="95" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="R3NVGjKWT4sXV1GPE9ub-16" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="R3NVGjKWT4sXV1GPE9ub-17" source="R3NVGjKWT4sXV1GPE9ub-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="610" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R3NVGjKWT4sXV1GPE9ub-17" value="Zobrazenie debugovacieho okna" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="315" y="620" width="95" height="95" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

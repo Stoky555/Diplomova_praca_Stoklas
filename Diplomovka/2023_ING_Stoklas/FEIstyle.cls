@@ -209,11 +209,11 @@
 \def\FEIstudyFieldEn#1{\def\@nazovStudijnehoOdboruEn{#1}}
 \newcommand{\printNazovStudijnehoOdboruEn}{\@nazovStudijnehoOdboruEn}
 
-\def\@skoliacePracovisko{\a'Ustav informatiky a matematiky}
+\def\@skoliacePracovisko{\a'Ustav automobilovej mechatroniky}
 \def\FEItrainingWorkplace#1{\def\@skoliacePracovisko{#1}}
 \newcommand{\printSkoliacePracovisko}{\@skoliacePracovisko}
 
-\def\@skoliacePracoviskoEn{Institute of Computer Science and Mathematics}
+\def\@skoliacePracoviskoEn{Institute of Automotive Mechatronics}
 \def\FEItrainingWorkplaceEn#1{\def\@skoliacePracoviskoEn{#1}}
 \newcommand{\printSkoliacePracoviskoEn}{\@skoliacePracoviskoEn}
 
@@ -249,17 +249,17 @@
 \titlespacing\subsubsection{12pt}{10pt}{0pt}
 \titlespacing\subsubsubsection{12pt}{10pt}{0pt}
 
-\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
-\definecolor{greencomments}{rgb}{0,0.5,0}
-\definecolor{redstrings}{rgb}{0.9,0,0}
-\definecolor{lightgray}{rgb}{0.5,0.5,0.5}
-\definecolor{darkgray}{rgb}{0.3,0.3,0.3}
+% Define colors
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{numbercolour}{rgb}{0.5,0.5,0.5}
+\definecolor{greencomments}{rgb}{0,0.6,0}
+\definecolor{bluekeywords}{rgb}{0,0,1}
+\definecolor{redstrings}{rgb}{0.64,0.08,0.08}
 \definecolor{purple}{rgb}{0.5,0,0.35}
-\definecolor{editorGray}{rgb}{0.95,0.95,0.95}
-\definecolor{orange}{rgb}{0.85,0.45,0.1}
-\definecolor{olive}{rgb}{0.2,0.6,0.2}
-\definecolor{numbercolour}{rgb}{0.17,0.57,0.68} % Custom added for number style
+\definecolor{olive}{rgb}{0.5,0.5,0}
+\definecolor{orange}{rgb}{1,0.65,0.16}
 
+% Define your custom style for C#
 \lstdefinestyle{Csharp}{
   language=[Sharp]C,
   showspaces=false,
@@ -271,12 +271,12 @@
   breakatwhitespace=true,
   escapeinside={(*@}{@*)},
   numberstyle=\tiny\color{numbercolour},
-  backgroundcolor=\color{editorGray}, % Slightly off-white background
+  backgroundcolor=\color{editorGray},
   stepnumber=1,
   commentstyle=\color{greencomments},
   keywordstyle=\color{bluekeywords},
   stringstyle=\color{redstrings},
-  basicstyle=\scriptsize\ttfamily\linespread{0.8}\selectfont, % Smaller font and reduced line spacing
+  basicstyle=\scriptsize\ttfamily\linespread{0.8}\selectfont,
   xleftmargin=5.0ex,
   morekeywords={
     abstract, as, base, bool, break, byte,
@@ -296,10 +296,10 @@
     where, select, from, group, into, orderby,
     join, let, by, on, equals, ascending, descending
   },
-  morecomment=[l][\color{purple}]{\#}, % Preprocessor commands in purple
-  moredelim=**[is][\color{olive}]{@}{@}, % Special annotations or decorations
-  moredelim=**[is][\color{orange}]{`}{`} % For special identifiers or Unity specific
-} 
+  morecomment=[l][\color{purple}]{\#},
+  moredelim=**[is][\color{olive}]{@}{@},
+  moredelim=**[is][\color{orange}]{`}{`}
+}
 
 %\IfEqCase*{\FEIenglish}{
 %    {0}{
