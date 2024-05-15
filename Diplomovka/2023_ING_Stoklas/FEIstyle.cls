@@ -507,7 +507,6 @@
 
 \newcommand\FEIthanks[1]{
     \pagestyle{empty}
-    \vspace*{120mm}
     \IfEqCase*{\FEIenglish}{
         {0}{\section*{\fontsize{22pt}{1.3}\selectfont Po\v{d}akovanie}}
         {1}{\section*{\fontsize{22pt}{1.3}\selectfont Acknowledgments}}
